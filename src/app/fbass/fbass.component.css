@@ -1,0 +1,103 @@
+.dropdown-menu {
+    min-width: 11rem;
+    height: 200px;
+    overflow-y: auto;
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin: 0;
+  }
+  
+  .card-header {
+    background-color: transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+  }
+  
+  .card-footer {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  }
+  
+  .email-read-messages > .table {
+    margin: 0;
+  }
+  
+  .email-read-actions {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    padding: 0.75rem 1.25rem;
+    min-height: 64px;
+  }
+  
+  .email-read-actions h3 {
+    font-size: 20px;
+    margin: 0;
+  }
+  
+  .email-read-actions h5 {
+    margin: 0;
+    padding: 5px 0 0 0;
+  }
+  
+  .email-read-time {
+    color: #999;
+    font-size: 13px;
+  }
+  
+  .email-read-message {
+    padding: 0.75rem 1.25rem;
+  }
+  
+  .email-read-attachments {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .email-read-attachments li {
+    float: left;
+    width: 200px;
+    border: 1px solid #eee;
+    margin-bottom: 10px;
+    margin-right: 10px;
+  }
+  
+  .email-read-attachment-name {
+    font-weight: bold;
+    color: #666;
+  }
+  
+  .email-read-attachment-icon,
+  .email-read-attachment-info,
+  .email-read-attachment-size {
+    display: block;
+  }
+  
+  .email-read-attachment-info {
+    padding: 10px;
+    background: #f4f4f4;
+  }
+  
+  .email-read-attachment-size {
+    color: #999;
+    font-size: 12px;
+  }
+  
+  .email-read-attachment-icon {
+    text-align: center;
+    font-size: 65px;
+    color: #666;
+    padding: 20px 10px;
+  }
+  
+  .email-read-attachment-icon.has-img {
+    padding: 0;
+  }
+  
+  .email-read-attachment-icon.has-img > img {
+    max-width: 100%;
+    height: auto;
+  }
+  
