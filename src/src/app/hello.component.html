@@ -1,0 +1,26 @@
+<div class="card card-primary card-outline">
+  <div class="card-body p-0">
+    <div class="email-read-actions">
+      <div class="btn-group btn-group-toggle d-flex px-2">
+        <label *ngFor="let category of legacy.categories" class="btn-info"            ngbButtonLabel>
+        <input type="checkbox" ngbButton>{{category.category}}</label>
+      </div>
+    </div>
+    <div class="card-header">
+      <h5 class="card-title">{{legacy.title}}</h5>
+      <h6>From: {{legacy.author}}
+        <span class="email-read-time float-right">{{legacy.date | date:'d MMM. y h:mm:ss a'}}</span></h6>
+    </div>
+    <div class="card-body p-0">
+    <div class="card-footer bg-white">
+      <div class="btn-group btn-group-toggle d-flex px-2">
+        <label *ngFor="let option of options" class="btn-light"            ngbButtonLabel>
+        <input type="checkbox" ngbButton>{{option.category}}</label>
+      </div>
+      </div>
+      <div class="email-read-message" innerHtml={{legacy.content}}></div>
+      <div class="card-footer bg-white">
+        <pre>{{save | json}}</pre>
+      </div>
+    </div>  
+</div>
