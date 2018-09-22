@@ -1,28 +1,126 @@
-# ngfbass
+# NgFBass
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.1.
+I need to get from legacy, list from options and post from save.
 
-## Development server
+## SAVE
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```
+{
+  "save":
+  [
+    {
+    "post": 1,
+    "categories": [1]
+    }
+  ]
+}
+```
 
-## Code scaffolding
+## OPTIONS
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+```
+[
+    {
+      "id": "1",
+      "category": "Ham"
+    },
+    {
+      "id": "2",
+      "category": "Suspect"
+    },
+    {
+      "id": "3",
+      "category": "Marketing"
+    },
+    {
+      "id": "4",
+      "category": "Spam"
+    },
+    {
+      "id": "5",
+      "category": "Adult"
+    },
+    {
+      "id": "6",
+      "category": "Virus"
+    },
+    {
+      "id": "7",
+      "category": "Phishing"
+    },
+    {
+      "id": "8",
+      "category": "Malware"
+    },
+    {
+      "id": "9",
+      "category": "Bulk"
+    },
+    {
+      "id": "10",
+      "category": "Outbound Block"
+    },
+    {
+      "id": "11",
+      "category": "Outbound Sent"
+    },
+    {
+      "id": "12",
+      "category": "Offensive"
+    },
+    {
+      "id": "13",
+      "category": "Spoofing"
+    },
+    {
+      "id": "14",
+      "category": "SPF"
+    },
+    {
+      "id": "15",
+      "category": "DMARK"
+    },
+    {
+      "id": "16",
+      "category": "Attachment Def"
+    },
+    {
+      "id": "17",
+      "category": "URL Def"
+    },
+    {
+      "id": "18",
+      "name": "Monitor"
+    }
+  ]
+```
 
-## Build
+## LEGACY
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```
+{
+    "title": "Title",
+    "date": "2018-09-05 20:28:04",
+    "author": "email@domain.com"    
+    "categories": [
+        {
+            "id": "1",
+            "category": "Ham"
+        },
+        {
+            "id": "2",
+            "category": "Suspect"
+        },
+        {
+            "id": "3",
+            "category": "Marketing"
+        },
+        {
+            "id": "4",
+            "category": "Spam"
+        }
+    ],
+    "media": [],
+    "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+  }
+```
