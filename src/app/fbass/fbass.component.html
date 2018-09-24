@@ -1,26 +1,44 @@
 <div class="card card-primary card-outline">
-  <div class="card-body p-0">
-    <div class="email-read-actions">
-      <div class="btn-group btn-group-toggle d-flex px-2">
-        <label *ngFor="let category of legacy.categories" class="btn-info"            ngbButtonLabel>
-        <input type="checkbox" ngbButton>{{category.category}}</label>
-      </div>
-    </div>
-    <div class="card-header">
-      <h5 class="card-title">{{legacy.title}}</h5>
-      <h6>From: {{legacy.author}}
-        <span class="email-read-time float-right">{{legacy.date | date:'d MMM. y h:mm:ss a'}}</span></h6>
-    </div>
+  <form [formGroup]="formLegacy">
     <div class="card-body p-0">
-    <div class="card-footer bg-white">
-      <div class="btn-group btn-group-toggle d-flex px-2">
-        <label *ngFor="let option of options" class="btn-light"            ngbButtonLabel>
-        <input type="checkbox" ngbButton>{{option.category}}</label>
+      <div class="email-read-actions">
+        <!-- <pre>{{formLegacy.value | json}}</pre> -->
+        <div class="btn-group btn-group-toggle d-flex">
+          <label *ngFor="let category of flags.controls; i as index" class="btn-info">
+            <!-- {{legacy.categories[i].category}} -->
+            <input type="checkbox" [formControl]="category">Category
+          </label>
+        </div>
       </div>
+      <div class="card-header">
+        <h5 class="card-title">{{legacy.title}}</h5>
+        <h6>From: {{legacy.author}}
+          <span class="email-read-time float-right">{{legacy.date | date:'d MMM. y h:mm:ss a'}}</span></h6>
       </div>
-      <div class="email-read-message" innerHtml={{legacy.content}}></div>
-      <div class="card-footer bg-white">
-        <pre>{{save | json}}</pre>
+      <div class="card-body p-0">
+        <div class="card-footer bg-white">
+          <div class="btn-group btn-group-toggle d-flex">
+            <label *ngFor="let option of options" class="btn-light" ngbButtonLabel>
+              <input type="checkbox" ngbButton>{{option.category}}</label>
+          </div>
+        </div>
+        <div class="email-read-message" innerHtml={{legacy.content}}></div>
+        <div class="card-footer bg-white">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <pre>{{legacy.categories | json}}</pre>
+                <div class="card-footer bg-white">
+                  <pre>{{save | json}}</pre>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <pre>{{options | json}}</pre>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>  
+    </div>
+  </form>
 </div>
