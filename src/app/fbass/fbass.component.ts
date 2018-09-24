@@ -31,20 +31,14 @@ export class FbassComponent implements OnInit {
     this.options.forEach((res: any) => {
       res.selected = false;
     });
-    
-    /*
-    this.legacyToOptions = this.legacy.categories.filter((cat: any) => {
-      return !!this.options.find((res: any) => res.selected !== cat.selected)
-    })
-    */
 
     this.optionsToLegacy = this.legacy.categories.filter((cat: any) => {
       return !!this.options.find((res: any) => res.selected !== cat.selected ? res.selected = true : null)
-    })    
-    
+    })
+
     this.legacyFlags = this.options.map((res: any) => res.selected);
 
-    this.setFlags(this.legacyFlags);    
+    this.setFlags(this.legacyFlags);
 
     this.formLegacy = this.fb.group({
       flags: this.fb.array(null, [])
@@ -73,25 +67,46 @@ export class FbassComponent implements OnInit {
     this.formLegacy.setControl("flags", optionsFormArray);
   }
 
-
-  legacy =
-    {
-      title: "Title of Legacy",
-      date: "2018-09-05 20:28:04",
-      author: "email@domain.com",
-      categories: [
-        {
-          id: "1",
-          category: "Ham"
-        },
-        {
-          id: "2",
-          category: "Suspect"
+  submit(form, event?) {
+    event.preventDefault();
+    const formValue = Object.assign({}, this.save.posts[0], {
+      selected: form.flags.map((selected, i) => {
+        return {
+          id: this.options[i].id,
+          selected
         }
-      ],
-      media: [],
-      content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-    }
+      }),
+      categories: form.flags.filter((flags: any) => {
+        return !!this.options.find((res: any) => res.selected !== flags.selected);
+      })
+    });
+    /*
+    this.legacyToOptions = this.legacy.categories.filter((cat: any) => {
+      return !!this.options.find((res: any) => res.selected !== cat.selected)
+    })
+    */
+    // let categories = formValue.categories.filter((res: any) => res.selected === true).map((res: any) => res.id);
+    console.log(formValue);
+    // console.log(categories);
+  }
+
+  legacy = {
+    title: "Title of Legacy",
+    date: "2018-09-05 20:28:04",
+    author: "email@domain.com",
+    categories: [
+      {
+        id: "1",
+        category: "Ham"
+      },
+      {
+        id: "2",
+        category: "Suspect"
+      }
+    ],
+    media: [],
+    content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+  }
   options =
     [
       {

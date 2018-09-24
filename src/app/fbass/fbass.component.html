@@ -1,5 +1,5 @@
 <div class="card card-primary card-outline">
-  <form [formGroup]="formLegacy">
+  <form [formGroup]="formLegacy" (submit)="submit(formLegacy.value, $event)">
     <div class="card-body p-0">
       <div class="email-read-actions">
         <pre>{{formLegacy.value | json}}</pre>
@@ -10,6 +10,7 @@
           </label>
         </div>
       </div>
+      <button  class="btn btn-success m-3" type="submit">Salvar</button>
       <div class="card-header">
         <h5 class="card-title">{{legacy.title}}</h5>
         <h6>From: {{legacy.author}}
