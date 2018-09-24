@@ -14,6 +14,7 @@ export class FbassComponent implements OnInit {
   legacyFlags: any;
   legacyAndOptions;
   legacyToOptions;
+  optionsToLegacy;
 
   constructor(@Inject(FormBuilder) private fb: FormBuilder) {
     this.formLegacy = this.fb.group({
@@ -28,11 +29,16 @@ export class FbassComponent implements OnInit {
     this.options.forEach((res: any) => {
       res.selected = false;
     });
-
+    
+    /*
     this.legacyToOptions = this.legacy.categories.filter((cat: any) => {
       return !!this.options.find((res: any) => res.selected !== cat.selected)
     })
-    console.log(this.legacyToOptions);
+    */
+
+    this.optionsToLegacy = this.legacy.categories.filter((cat: any) => {
+      return !!this.options.find((res: any) => res.selected !== cat.selected ? res.selected = true : null)
+    })
     
     /*
     this.legacyAndOptions = from([
@@ -44,10 +50,6 @@ export class FbassComponent implements OnInit {
       .pipe(distinctUntilChanged())
       .subscribe(val => console.log(val));
     */
-    this.legacyToOptions = this.legacy.categories.filter((cat: any) => {
-      return !!this.options.find((res: any) => res.selected !== cat.selected)
-    })
-    console.log(this.legacyToOptions);
 
     this.legacyFlags = this.legacy.categories.map((res: any) => this.fb.control(res.selected));
     // const answerFormArray = this.fb.array(this.legacyFlags);
