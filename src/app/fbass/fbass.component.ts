@@ -15,6 +15,8 @@ export class FbassComponent implements OnInit {
   legacyAndOptions;
   legacyToOptions;
   optionsToLegacy;
+  optionsToSave;
+  optionsFormArray;
 
   constructor(@Inject(FormBuilder) private fb: FormBuilder) {
     this.formLegacy = this.fb.group({
@@ -38,32 +40,23 @@ export class FbassComponent implements OnInit {
 
     this.optionsToLegacy = this.legacy.categories.filter((cat: any) => {
       return !!this.options.find((res: any) => res.selected !== cat.selected ? res.selected = true : null)
-    })
+    })    
     
-    /*
-    this.legacyAndOptions = from([
-      this.legacy.categories,
-      this.options
-    ])
+    this.legacyFlags = this.options.map((res: any) => res.selected);
+    // this.optionsToSave = this.legacyFlags.map(res => this.fb.control(res));
+    // this.optionsFormArray = this.fb.array(this.optionsToSave);
+    // this.formLegacy.setControl("flags", this.optionsToSave);
+    // console.log(this.optionsFormArray);
 
-    this.legacyToOptions = this.legacyAndOptions
-      .pipe(distinctUntilChanged())
-      .subscribe(val => console.log(val));
-    */
-
-    this.legacyFlags = this.legacy.categories.map((res: any) => this.fb.control(res.selected));
-    // const answerFormArray = this.fb.array(this.legacyFlags);
-    // this.formLegacy.setControl("flags", answerFormArray);
+    this.setFlags(this.legacyFlags);    
 
     this.formLegacy = this.fb.group({
-      flags: this.fb.array([
-        this.legacyFlags
-        // this.fb.control(this.legacyFlags)
+      flags: this.fb.array(null, [    
         // this.fb.control(true),
         // this.fb.control(false)
       ])
     })
-    // console.log(this.formLegacy.value.flags);
+    console.log(this.formLegacy.value.flags.value);
   }
 
   get flags() {
@@ -75,10 +68,16 @@ export class FbassComponent implements OnInit {
   }
 
   buildSave() {
-    const arr = this.legacy.categories.map((flag: any) => {
+    const arr = this.options.map((flag: any) => {
       return this.fb.control(flag.selected);
     });
     return this.fb.array(arr);
+  }
+
+  setFlags(flags: any[]) {
+    const legacyFlags = flags.map(flag => this.fb.control(flag));
+    const optionsFormArray = this.fb.array(legacyFlags);
+    this.formLegacy.setControl("flags", optionsFormArray);
   }
 
 

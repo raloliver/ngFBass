@@ -2,7 +2,7 @@
   <form [formGroup]="formLegacy">
     <div class="card-body p-0">
       <div class="email-read-actions">
-        <!-- <pre>{{formLegacy.value | json}}</pre> -->
+        <pre>{{formLegacy.value | json}}</pre>
         <div class="btn-group btn-group-toggle d-flex">
           <label *ngFor="let category of flags.controls; i as index" class="btn-info">
             <!-- {{legacy.categories[i].category}} -->
@@ -27,7 +27,9 @@
           <div class="container">
             <div class="row">
               <div class="col-md-6">
-                <pre>{{legacy.categories | json}}</pre>
+                <div class="card-footer bg-white">
+                  <pre>{{legacy.categories | json}}</pre>
+                </div>
                 <div class="card-footer bg-white">
                   <pre>{{save | json}}</pre>
                 </div>
