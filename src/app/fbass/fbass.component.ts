@@ -43,18 +43,11 @@ export class FbassComponent implements OnInit {
     })    
     
     this.legacyFlags = this.options.map((res: any) => res.selected);
-    // this.optionsToSave = this.legacyFlags.map(res => this.fb.control(res));
-    // this.optionsFormArray = this.fb.array(this.optionsToSave);
-    // this.formLegacy.setControl("flags", this.optionsToSave);
-    // console.log(this.optionsFormArray);
 
     this.setFlags(this.legacyFlags);    
 
     this.formLegacy = this.fb.group({
-      flags: this.fb.array(null, [    
-        // this.fb.control(true),
-        // this.fb.control(false)
-      ])
+      flags: this.fb.array(null, [])
     })
     console.log(this.formLegacy.value.flags.value);
   }
