@@ -4,9 +4,9 @@
       <div class="email-read-actions">
         <pre>{{formLegacy.value | json}}</pre>
         <div class="btn-group btn-group-toggle d-flex">
-          <label *ngFor="let category of flags.controls; i as index" class="btn-info">
+          <label *ngFor="let category of flags.controls; let i=index" class="btn-info" ngbButtonLabel>
             <!-- {{legacy.categories[i].category}} -->
-            <input type="checkbox" [formControl]="category">Category
+            <input type="checkbox" [formControl]="category" ngbButton >{{options[i].category}}
           </label>
         </div>
       </div>

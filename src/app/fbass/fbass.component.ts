@@ -102,20 +102,20 @@ export class FbassComponent implements OnInit {
   options =
     [
       {
-        "id": "1",
-        "category": "Ham"
+        id: 1,
+        category: "Ham"
       },
       {
-        "id": "2",
-        "category": "Suspect"
+        id: 2,
+        category: "Suspect"
       },
       {
-        "id": "3",
-        "category": "Marketing"
+        id: 3,
+        category: "Marketing"
       },
       {
-        "id": "4",
-        "category": "Spam"
+        id: 4,
+        category: "Spam"
       }
     ]
   save = {
